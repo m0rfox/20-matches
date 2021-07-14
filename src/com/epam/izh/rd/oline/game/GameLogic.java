@@ -1,8 +1,5 @@
 package com.epam.izh.rd.oline.game;
 
-import java.io.IOException;
-import java.util.InputMismatchException;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 
@@ -10,6 +7,7 @@ public class GameLogic {
     static int countOfMatches = 20;
     static int numberOfMoves = 0;
     static int numberOfMatchesTaken;
+    static String numberOfMatchesTakenString;
 
 
     public static void computerMove() {
@@ -18,16 +16,19 @@ public class GameLogic {
         ComputerLogic.moveOfComputer();
     }
 
-    public static int inputFromKeyboard() {
+
+    public static String inputFromKeyboard() {
         Scanner console = new Scanner(System.in);
-        return numberOfMatchesTaken = console.nextInt();
+        return numberOfMatchesTakenString = console.nextLine();
     }
+
 
 
     public static void playersMove() {
         numberOfMoves++;
         OutputToConsole.declaringAMoveOfPlayer();
-        int currentNumbersOfMatches = inputFromKeyboard();
+        if (isNumeric(inputFromKeyboard())){
+            int currentNumbersOfMatches = Integer.parseInt(numberOfMatchesTakenString);
             switch (currentNumbersOfMatches) {
                 case 1:
                     countOfMatches = countOfMatches - 1;
@@ -50,6 +51,11 @@ public class GameLogic {
                 default:
                     OutputToConsole.declaringAWrongNumbersOfMatches();
             }
+        }else {
+            OutputToConsole.declaringAWrongSymbol();
+            playersMove();
+        }
+
     }
 
     public static boolean isNumeric(String str) {

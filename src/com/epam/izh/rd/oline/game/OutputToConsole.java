@@ -21,7 +21,7 @@ public class OutputToConsole {
 
     public static void endOfGame (){
         printStartEndSeparator();
-        System.out.println("*********** Игра закончилась, вы проиграли! ***********");
+        System.out.println("************ Игра окончилась, вы проиграли! ***********");
         printStartEndSeparator();
 
     }
@@ -38,6 +38,11 @@ public class OutputToConsole {
 
     public static void declaringAWrongNumbersOfMatches (){
         System.out.println("Вы взяли недопустимое число спичек, возьмите от одной до трех спичек.");
+        printSeparator();
+    }
+
+    public static void declaringAWrongSymbol (){
+        System.out.println("Вы ввели недопустимый символ!");
         printSeparator();
     }
 

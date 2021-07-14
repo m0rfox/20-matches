@@ -1,7 +1,7 @@
 package com.epam.izh.rd.oline.game;
 
 import static com.epam.izh.rd.oline.game.GameLogic.*;
-import static com.epam.izh.rd.oline.game.OutputToConsole.declaringACountOfComputerTakesMatches;
+
 
 
 public class ComputerLogic {
